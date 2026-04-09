@@ -1,0 +1,15 @@
+# One job at a time is fine — enable only what you are validating.
+
+jobs:
+  - id: usa_inventory_evaluation_summary
+    enabled: true
+    # Run manually or via Task Scheduler / cron; optional per-job interval is for future use
+    refresh_interval_seconds: 3600
+    source:
+      type: registered_sql
+      query_name: usa_inventory_evaluation_summary
+    target:
+      mysql_table: usa_inventory_evaluation_summary
+      load_mode: replace
+      primary_key: []
+    column_map: {}
